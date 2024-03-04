@@ -9,15 +9,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   ArrProduct.map((item) => {
     console.log(item.nameLaptop);
-    const img = item.image;
-    console.log(img[0]);
+    const { image, slug } = item;
+    console.log("slug:   ", slug);
+    // console.log(img[0]);
     const template = `
                                     <div class="col-6 col-md-4 col-lg-4">
                                         <div class="product product-7 text-center">
                                             <figure class="product-media">
                                                 <span class="product-label label-new">New</span>
-                                                <a href="product.html">
-                                                    <img src="http://localhost:3000/${img[0]}" alt="Product image"
+                                                <a href="product.html?product=${slug}">
+                                                    <img src="http://localhost:3000/${image[0]}" alt="Product image"
                                                         class="product-image">
                                                 </a>
 
@@ -29,7 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                                             <div class="product-body text-left">
 
-                                                <h3 class="product-title"><a href="product.html"
+                                                <h3 class="product-title"><a href="product.html?product=${slug}"
                                                         class="text-left">${item.nameLaptop}</a></h3><!-- End .product-title -->
                                                 <div class="product-price justify-content-left ">
                                                     ${item.price}₫
